@@ -1,4 +1,4 @@
-#include "Graph.hpp"
+#include "Graph.h"
 #include <set>
 #include <queue>
 
@@ -66,7 +66,8 @@ double Graph::random_num_gen(int random_type, double random_index_1, double rand
     return -2;
 }
 
-int[] Graph::findPivot(int[] shortest_path){
+
+int * Graph::findPivot(int shortest_path[]){
         int cur_small = shortest_path[shortest_path.size()-1];
         int[] toreturn = [];
         for(int i = shortest_path.size() - 2; i > 0, i--){

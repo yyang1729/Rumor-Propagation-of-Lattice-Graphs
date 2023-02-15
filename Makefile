@@ -1,2 +1,2 @@
-compile code:
-	clang graph_functions.cpp -o graph
+OBJS_DIR = .objs
+
