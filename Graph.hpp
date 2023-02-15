@@ -17,9 +17,9 @@ class Graph {
         //  3      binomial                   times                    probability
         Graph(int num_verticies, int d, int random_type, double random_index_1, double random_index_2);
         void reassign_edge(int random_type, double random_index_1, double random_index_2);
-        int[] findSP();
-        int[] findPivot(int[] shortest_path);
-        double findDis(int[] pivots);
+        int * findSP();
+        int * findNRP(int shortest_path[]);
+        //double findDis(int pivots[]);
         ~Graph();
 
     private:
