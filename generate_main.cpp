@@ -23,7 +23,7 @@ int main(){
         pathfile.close;
 
         std::ofstream nrpfile;
-        nrpfile.open("path.csv");
+        nrpfile.open("nrp.csv");
         nrpfile << nrp_str;
         nrpfile.close;
     }
