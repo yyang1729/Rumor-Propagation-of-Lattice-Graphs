@@ -1,2 +1,2 @@
-graph: graph.cpp
-	clang graph.cpp -o graph
+graph: Graph.cpp
+	clang Graph.cpp -o graph
