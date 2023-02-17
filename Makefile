@@ -1,2 +1,2 @@
-OBJS_DIR = .objs
-
+graph: graph.cpp
+	clang graph.cpp -o graph
