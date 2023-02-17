@@ -1,6 +1,7 @@
 #include "Graph.h"
 #include <set>
 #include <queue>
+#include<algorithm>
 
 Graph::Graph(int num_verticies, int d, int random_type, double random_index_1, double random_index_2) {
     edge_matrix.resize(num_verticies);
@@ -66,10 +67,10 @@ double Graph::random_num_gen(int random_type, double random_index_1, double rand
     return -2;
 }
 
-int * Graph::findPivot(int shortest_path[]){
+std::vector<int> Graph::findNRP(std::vector<int> shortest_path){
         int cur_small = shortest_path[shortest_path.size()-1];
-        int[] toreturn = [];
-        for(int i = shortest_path.size() - 2; i > 0, i--){
+        std::vector<int> toreturn = {};
+        for(int i = shortest_path.size() - 2; i > 0; i--){
                 if(shortest_path[i] < cur_small){
                         cur_small = shortest_path[i];
                         if(shortest_path[i-1] > cur_small) {
@@ -81,26 +82,26 @@ int * Graph::findPivot(int shortest_path[]){
 }
 
 //currently implementing shortest path using the standard Dijkstra's Algorithm
-int[] Graph::findShortestPath(int start, int end){
-        int[] result = {};
-        std::set MST;
+std::vector<int> Graph::findShortestPath(int start, int end){
+        std::vector<int> result = {};
+        std::set<int> MST;
         int n = edge_matrix.size();
 
         //array to make traceback easier
-        int prev[n] = {0};
+        int prev[n];
 
         //initialize a *tentative* distance array with default value infinity except for our starting vertex
-        double distance[n] = {0}; //c initialization to 0
+        double distance[n]; //c initialization to 0
         //set to inf if not the start
         for(int i = 0; i < n; i++){
                 prev[i] = -1;
-                if(i == start) continue;
+                if(i == start) distance[i] = 0;
                 distance[i] = INFINITY;
         }
 
         while(MST.size() < n){
                 double min = INFINITY;
-                int i = 0
+                int i = 0;
                 for(; i < n; i++){
                         if(distance[i] < min){
                                 break;
@@ -120,26 +121,29 @@ int[] Graph::findShortestPath(int start, int end){
         int cur = end;
         if(distance[cur] == INFINITY){
                 //something went wrong and graph was not connected
-                return NULL;
+                result.push_back(-1);
+                return result;
         }
+
+        result.push_back(distance[cur]);
         
         int i = 0;
         while(cur != start){
-                result[i] = prev[cur];
+                result.push_back(prev[cur]);
                 cur = prev[cur];
                 i++;
         }
 
-        reverse(result, result + (sizeof(result)));
+        std::reverse(result.begin(), result.end());
 
 
         return result;
 }
-
+/*
 double Graph::findDis(int[] pivots){
         double toreturn = 0.0;
         for(int i = 1; i <  pivots.size(); i++){
                 toreturn += edge_matrix[pivots[i-1]][pivots[i]];
         }
         return toreturn;
-}
+}*/
