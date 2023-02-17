@@ -1,2 +1,2 @@
 graph: Graph.cpp
-	clang Graph.cpp -o graph
+	g++ main.cpp Graph.cpp -o graph

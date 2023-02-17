@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <random>
 #include <vector>
 #include <cstdlib>
@@ -20,7 +19,7 @@ class Graph {
         vector<int> findShortestPath(int start, int end);
         vector<int> findNRP(vector<int> shortest_path);
         //double findDis(int pivots[]);
-        ~Graph();
+       // ~Graph();
 
     private:
         vector< vector<double> > edge_matrix;
