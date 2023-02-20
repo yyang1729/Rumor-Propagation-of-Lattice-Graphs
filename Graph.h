@@ -23,7 +23,7 @@ class Graph {
 
     private:
         vector< vector<double> > edge_matrix;
-        int d;
+        int d_;
         double random_num_gen(int random_type, double random_index_1, double random_index_2);
 };
 
