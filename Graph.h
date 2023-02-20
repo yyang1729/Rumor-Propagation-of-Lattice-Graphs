@@ -18,6 +18,7 @@ class Graph {
         void reassign_edge(int random_type, double random_index_1, double random_index_2);
         vector<int> findShortestPath(int start, int end);
         vector<int> findNRP(vector<int> shortest_path);
+        void print_graph();
         //double findDis(int pivots[]);
        // ~Graph();
 

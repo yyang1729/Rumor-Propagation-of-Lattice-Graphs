@@ -2,6 +2,7 @@
 #include <set>
 #include <queue>
 #include <algorithm>
+#include <iostream>
 
 Graph::Graph(int num_verticies, int d, int random_type, double random_index_1, double random_index_2)
 {
@@ -180,3 +181,13 @@ double Graph::findDis(int[] pivots){
         }
         return toreturn;
 }*/
+
+void Graph::print_graph() {
+        std::cout << "Graph:" << std::endl;
+        for (int i = 0; i < edge_matrix.size(); i++) {
+                for (int j = 0; j < edge_matrix.size(); j++) {
+                        std::cout << edge_matrix[i][j] << " ";
+                }
+                std::cout << std::endl;
+        }
+}

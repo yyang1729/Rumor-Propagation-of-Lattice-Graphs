@@ -3,8 +3,12 @@
 
 int main(){
     std::cout<<"START"<<std::endl;
-    Graph g = Graph(10,1,0,0,1);
+    Graph g = Graph(10,2,0,0,1);
     std::cout<<"GRAPH INITIALIZED"<<std::endl;
+
+    g.print_graph();
+
+
     std::vector<int> path = g.findShortestPath(1,9);
     std::cout<<"Find Path"<<std::endl;
     std::vector<int> nrp =  g.findNRP(path);
