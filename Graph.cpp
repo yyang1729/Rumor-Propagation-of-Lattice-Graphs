@@ -105,9 +105,9 @@ std::vector<int> Graph::findNRP(std::vector<int> shortest_path)
 }
 
 // currently implementing shortest path using the standard Dijkstra's Algorithm
-std::vector<int> Graph::findShortestPath(int start, int end)
+vector<int> Graph::findShortestPath(int start, int end)
 {
-        std::vector<int> result;
+        std::vector<int> result = {};
         std::set<int> MST;
         int n = edge_matrix.size();
 
@@ -120,8 +120,9 @@ std::vector<int> Graph::findShortestPath(int start, int end)
         for (int i = 0; i < n; i++)
         {
                 prev[i] = -1;
-                if (i == start)
-                        distance[i] = 0;
+                if (i == start){distance[i] = 0;
+                    continue;}
+                        
                 distance[i] = INFINITY;
         }
 
@@ -142,10 +143,10 @@ std::vector<int> Graph::findShortestPath(int start, int end)
 
                 for (int j = u - 2; j <= u + 2; j++)
                 {
-                        if (!MST.count(j) && j < n && j >= 0 && distance[u] + edge_matrix[u][j] < distance[j])
+                        if (!MST.count(j) && j < n && j >= 0 && distance[u] + edge_matrix[j][u] < distance[j])
                         {
-                                // distance[j] = distance[u] + edge_matrix[u][j];
-                                distance[j] = 0;
+                                distance[j] = distance[u] + edge_matrix[j][u];
+                                //distance[j] = 0;
                                 prev[j] = u;
                         }
                 }
@@ -159,7 +160,8 @@ std::vector<int> Graph::findShortestPath(int start, int end)
                 return result;
         }
 
-        result.push_back(distance[cur]);
+        
+        result.push_back(cur);
 
         int i = 0;
         while (cur != start)
