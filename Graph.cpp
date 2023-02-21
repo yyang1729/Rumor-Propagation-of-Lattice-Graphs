@@ -181,7 +181,7 @@ void Graph::print_graph() {
         std::cout << "Graph:" << std::endl;
         for (int i = 0; i < edge_matrix.size(); i++) {
                 for (int j = 0; j < edge_matrix.size(); j++) {
-                        std::cout << edge_matrix[i][j] << " ";
+                        if(edge_matrix[i][j]) std::cout << edge_matrix[i][j] << " ";
                 }
                 std::cout << std::endl;
         }

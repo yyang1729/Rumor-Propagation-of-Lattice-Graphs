@@ -7,7 +7,25 @@ int main(){
     int rtype = 0;
     double ri1 = 0.0;
     double ri2 = 1.0;
+    int ITERATIONS = 100;
 
+    Graph g = Graph(N, d, rtype, ri1, ri2);
+    for(int i = 0; i < ITERATIONS; i++){
+        g.reassign_edge(rtype, ri1, ri2);
+        pair<vector<int>, double> path = g.findShortestPath(0, 9);
+        for(int j = 0; j < path.first.size(); j++){
+            printf("%d ", path.first[j]);
+        }
+        printf("\n%f\n", path.second);
+        
+        std::vector<int> nrp = g.findNRP(path.first);
+        for(int j = 0; j < nrp.size(); j++){
+            printf("%d ", nrp[j]);
+        }
+        std::cout << std::endl;
+    }
+
+/*
     std::cout<<"START"<<std::endl;
     Graph g = Graph(N, d, rtype, ri1, ri2);
     std::cout<<"GRAPH INITIALIZED"<<std::endl;
@@ -25,10 +43,12 @@ int main(){
     
 
     std::vector<int> nrp =  g.findNRP(path.first);
-    std::cout<<"Find NPR"<<std::endl;
+    std::cout<<"Find NRP"<<std::endl;
     for(int i :nrp){
         std::cout<<i<<std::endl;
     }
     std::cout<<"END"<<std::endl;
+
+*/
     return 0;
 }
