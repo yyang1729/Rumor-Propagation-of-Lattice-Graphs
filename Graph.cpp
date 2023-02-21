@@ -105,7 +105,7 @@ std::vector<int> Graph::findNRP(std::vector<int> shortest_path)
 }
 
 // currently implementing shortest path using the standard Dijkstra's Algorithm
-vector<int> Graph::findShortestPath(int start, int end)
+pair<vector<int>, double> Graph::findShortestPath(int start, int end)
 {
         std::vector<int> result = {};
         std::set<int> MST;
@@ -141,7 +141,7 @@ vector<int> Graph::findShortestPath(int start, int end)
 
                 MST.insert(u);
 
-                for (int j = u - 2; j <= u + 2; j++)
+                for (int j = u - d_; j <= u + d_; j++)
                 {
                         if (!MST.count(j) && j < n && j >= 0 && distance[u] + edge_matrix[j][u] < distance[j])
                         {
@@ -153,13 +153,6 @@ vector<int> Graph::findShortestPath(int start, int end)
         }
 
         int cur = end;
-        if (distance[cur] == INFINITY)
-        {
-                // something went wrong and graph was not connected
-                result.push_back(-1);
-                return result;
-        }
-
         
         result.push_back(cur);
 
@@ -173,7 +166,7 @@ vector<int> Graph::findShortestPath(int start, int end)
 
         std::reverse(result.begin(), result.end());
 
-        return result;
+        return pair<vector<int>, double> (result, distance[end]);
 }
 /*
 double Graph::findDis(int[] pivots){
