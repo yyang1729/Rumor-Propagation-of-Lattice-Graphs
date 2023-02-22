@@ -1,18 +1,18 @@
 #include "Graph.h"
 #include <iostream>
 
-int main(){
-    int N = 10;
-    int d = 2;
-    int rtype = 0;
-    double ri1 = 0.0;
+int main(int argc, char * argv[]){
+    int N = std::stoi(argv[1]);
+    int d = std::stoi(argv[2]);
+    int rtype = 2;
+    double ri1 = 1.0;
     double ri2 = 1.0;
-    int ITERATIONS = 100;
+    int ITERATIONS = std::stoi(argv[3]);
 
     Graph g = Graph(N, d, rtype, ri1, ri2);
     for(int i = 0; i < ITERATIONS; i++){
         g.reassign_edge(rtype, ri1, ri2);
-        pair<vector<int>, double> path = g.findShortestPath(0, 9);
+        pair<vector<int>, double> path = g.findShortestPath(0, N-1);
         for(int j = 0; j < path.first.size(); j++){
             printf("%d ", path.first[j]);
         }
