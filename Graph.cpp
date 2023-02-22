@@ -97,7 +97,7 @@ std::vector<int> Graph::findNRP(std::vector<int> shortest_path)
                         cur_small = shortest_path[i];
                         if (shortest_path[i - 1] > cur_small)
                         {
-                                toreturn.push_back(i);
+                                toreturn.push_back(shortest_path[i]);
                         }
                 }
         }
