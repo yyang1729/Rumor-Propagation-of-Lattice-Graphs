@@ -2,24 +2,48 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <math.h>
+
 int main(){
-    int num_of_simu = 100;
-    for(int x = 1000; x < 2500; x+=500){
-        for(int y=x/10; y<=x; y+=(x/10)){
+    int num_of_simu = 10;
+    int x=0;
+    int y=0;
+    for(int s = 0; s < 4; s++){
+        if(s == 0){ 
+            x = 1000;
+        } else if (s == 1){
+            x = 1500;
+        } else if (s == 2){
+            x = 2000;
+        } else {
+            x = 5000;
+        }
+        for(int t=0; t<5; t++){
             Graph g = Graph(x,y,0,0,1);
+            if(t == 0){
+                y = 5;
+            } else if (t == 1){
+                y = log(x);
+            } else if (t == 2){
+                y = cbrt(x);
+            } else if (t == 3){
+                y = sqrt(x);
+            } else {
+                y = x/10;
+            }            
             std::string name = "_N_" + std::to_string(x) + "_D_"+std::to_string(y);
             std::ofstream pathseqfile;
-            std::string pathseqname = "./data/path_seq"+name+".csv";
+            std::string pathseqname = "./ndata/path_seq"+name+".csv";
             pathseqfile.open(pathseqname);
             std::ofstream pathfile;
-            std::string pathname = "./data/path"+name+".csv";
+            std::string pathname = "./ndata/path"+name+".csv";
             pathfile.open(pathname);
             std::ofstream nrpfile;
-            std::string nrpname = "./data/nrp"+name+".csv";
+            std::string nrpname = "./ndata/nrp"+name+".csv";
             nrpfile.open(nrpname);
             for(int u = 0; u < num_of_simu; u++){
                 g.reassign_edge(0,0,1);
-                //std::cout<<name+" "+std::to_string(u)+" time"<<std::endl;
+                std::cout<<name+" "+std::to_string(u)+" time"<<std::endl;
                 pair<vector<int>, double> path_result = g.findShortestPath(1,x-1);
                 vector<int> path = path_result.first;
                 std::string path_str = "";
