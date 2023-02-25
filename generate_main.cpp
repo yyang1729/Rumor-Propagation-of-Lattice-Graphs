@@ -5,7 +5,7 @@
 #include <math.h>
 
 int main(){
-    int num_of_simu = 10;
+    int num_of_simu = 100;
     int x=0;
     int y=0;
     for(int s = 0; s < 4; s++){
@@ -19,7 +19,6 @@ int main(){
             x = 5000;
         }
         for(int t=0; t<5; t++){
-            Graph g = Graph(x,y,0,0,1);
             if(t == 0){
                 y = 5;
             } else if (t == 1){
@@ -30,7 +29,8 @@ int main(){
                 y = sqrt(x);
             } else {
                 y = x/10;
-            }            
+            }
+            Graph g = Graph(x,y,0,0,1);            
             std::string name = "_N_" + std::to_string(x) + "_D_"+std::to_string(y);
             std::ofstream pathseqfile;
             std::string pathseqname = "./ndata/path_seq"+name+".csv";
