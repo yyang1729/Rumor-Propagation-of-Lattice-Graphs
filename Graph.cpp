@@ -107,7 +107,7 @@ std::vector<int> Graph::findNRP(std::vector<int> shortest_path)
 // currently implementing shortest path using the standard Dijkstra's Algorithm
 pair<vector<int>, double> Graph::findShortestPath(int start, int end)
 {
-        std::vector<int> result = {};
+        std::vector<int> result;
         std::set<int> MST;
         int n = edge_matrix.size();
 
