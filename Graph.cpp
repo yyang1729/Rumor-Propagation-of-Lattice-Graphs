@@ -126,7 +126,7 @@ pair<vector<int>, double> Graph::findShortestPath(int start, int end)
                 distance[i] = INFINITY;
         }
 
-        while (MST.size() < n)
+        while (distance[end] == INFINITY)
         {
                 double min = INFINITY;
                 int u = -1;
