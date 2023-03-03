@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    DIR* datadir = opendir("ndata");
+    DIR* datadir = opendir("Fulldata/1000");
     dirent* entry = readdir(datadir);
 
     while(entry){
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
             string line;
             string filename = entry->d_name;
 
-            ifstream infile("ndata/" + filename);
+            ifstream infile("Fulldata/1000/" + filename);
             if (infile.is_open()) {
                 while(getline(infile, line)) {
                     tottime = stod(line);
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
                 }
             } else {printf("failed to open %s\n", entry->d_name);}
 
-            printf("%d, %d, %f\n", N, d, tottime / samples);
+            printf("%d %d %f\n", N, d, tottime / samples);
         }
         entry = readdir(datadir);
     }
