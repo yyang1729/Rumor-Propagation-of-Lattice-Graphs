@@ -7,7 +7,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    string path = "ndata/";
+    string path = "Apexdata/";
     // for (const auto & entry : filesystem::directory_iterator(path)) {
         // string filename = entry.path();
         string filename = argv[1];
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
                 }
             }
             double average = total / 100;
-            int N = stoi(filename.substr(12, 4));
+            int N = stoi(argv[2]);
             double output = average / N;
             cout << filename << " : " << output << endl;
         }
