@@ -12,7 +12,7 @@ int main(){
     //std::cout<<"start"<<std::endl;
     for(int s = 0; s < 4; s++){
         if(s == 0){ 
-            x = 10000;
+            x = 1500;
         } else if (s == 1){
             x = 5000;
         } else if (s == 2){
@@ -23,13 +23,13 @@ int main(){
         //std::cout<<x<<std::endl;
         for(int t=0; t<4; t++){
             if(t == 0){
-                y = 4;
+                y = std::pow(x, 0.42);
             } else if (t == 1){
-                y = 5;
+                y = std::pow(x, 0.44);
             } else if (t == 2){
-                y = 6;
+                y = std::pow(x, 0.46);
             } else if (t == 3){
-                y = 7;
+                y = std::pow(x, 0.48);
             } else {
                 y = x/5;
             }
@@ -42,13 +42,13 @@ int main(){
             //std::cout<<"g"<<std::endl;          
             std::string name = "_N_" + std::to_string(x) + "_D_"+std::to_string(y);
             std::ofstream pathseqfile;
-            std::string pathseqname = "./Apexdata/path_seq"+name+".csv";
+            std::string pathseqname = "./0.4-0.5data/path_seq"+name+".csv";
             pathseqfile.open(pathseqname);
             std::ofstream pathfile;
-            std::string pathname = "./Apexdata/path"+name+".csv";
+            std::string pathname = "./0.4-0.5data/path"+name+".csv";
             pathfile.open(pathname);
             std::ofstream nrpfile;
-            std::string nrpname = "./Apexdata/nrp"+name+".csv";
+            std::string nrpname = "./0.4-0.5data/nrp"+name+".csv";
             nrpfile.open(nrpname);
             for(int u = 0; u < num_of_simu; u++){
                 g.reassign_edge(0,0,1);
