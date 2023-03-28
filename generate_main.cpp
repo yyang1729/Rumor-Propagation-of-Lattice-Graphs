@@ -6,26 +6,26 @@
 #include <cmath>
 
 int main(){
-    int num_of_simu = 100;
+    int num_of_simu = 400;
     int x=0;
     int y=0;
     //std::cout<<"start"<<std::endl;
-    for(int s = 0; s < 4; s++){
+    for(int s = 0; s < 2; s++){
         if(s == 0){ 
-            x = 10000;
+            x = 1000;
         } else if (s == 1){
-            x = 15000;
+            x = 2000;
         } else if (s == 2){
-            x = 50000;
+            x = 2000;
         } else {
-            x = 100000;
+            x = 5000;
         }
         //std::cout<<x<<std::endl;
-        for(int t=0; t<4; t++){
+        for(int t=0; t<1; t++){
             if(t == 0){
-                y = std::pow(x, 0.42);
+                y = 5;
             } else if (t == 1){
-                y = std::pow(x, 0.44);
+                y = x/10;
             } else if (t == 2){
                 y = std::pow(x, 0.46);
             } else if (t == 3){
