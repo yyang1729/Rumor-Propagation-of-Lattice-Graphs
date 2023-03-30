@@ -6,7 +6,7 @@
 #include <cmath>
 
 int main(){
-    int num_of_simu = 400;
+    int num_of_simu = 900;
     int x=0;
     int y=0;
     //std::cout<<"start"<<std::endl;
@@ -20,7 +20,6 @@ int main(){
         } else {
             x = 5000;
         }
-        double tmp = sqrt(x);
         //std::cout<<x<<std::endl;
         for(int t=0; t<1; t++){
             if(t == 0){
@@ -32,7 +31,7 @@ int main(){
             } else if (t == 3){
                 y = std::pow(x, 0.48);
             } else {
-                y = (int) (1.5 * tmp);
+                y = x/5;
             }
             //y = t;
             //if (y > x) {
@@ -72,8 +71,8 @@ int main(){
                 pathfile << std::to_string(path_result.second)+"\n";
                 nrpfile << nrp_str;
             }
-            pathseqfile.close();
-            pathfile.close();
+            // pathseqfile.close();
+            // pathfile.close();
             nrpfile.close();
         }
     }
