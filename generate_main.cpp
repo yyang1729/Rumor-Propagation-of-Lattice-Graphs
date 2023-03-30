@@ -10,9 +10,9 @@ int main(){
     int x=0;
     int y=0;
     //std::cout<<"start"<<std::endl;
-    for(int s = 0; s < 2; s++){
+    for(int s = 0; s < 1; s++){
         if(s == 0){ 
-            x = 1000;
+            x = 5000;
         } else if (s == 1){
             x = 2000;
         } else if (s == 2){
@@ -55,11 +55,11 @@ int main(){
                 std::cout<<name+" "+std::to_string(u)+" time"<<std::endl;
                 pair<vector<int>, double> path_result = g.findShortestPath(1,x-1);
                 vector<int> path = path_result.first;
-                // std::string path_str = "";
-                // for(int i : path){
-                //     path_str += std::to_string(i) + ",";
-                // }
-                // path_str += "\n";
+                std::string path_str = "";
+                for(int i : path){
+                    path_str += std::to_string(i) + ",";
+                }
+                path_str += "\n";
                 std::vector<int> nrp =  g.findNRP(path);
                 std::string nrp_str = "";
                 for(int i : nrp){
@@ -67,8 +67,8 @@ int main(){
                 }      
                 nrp_str += "\n";  
 
-                // pathseqfile << path_str;
-                // pathfile << std::to_string(path_result.second)+"\n";
+                pathseqfile << path_str;
+                pathfile << std::to_string(path_result.second)+"\n";
                 nrpfile << nrp_str;
             }
             // pathseqfile.close();
