@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    DIR* datadir = opendir("Fulldata/1000");
+    DIR* datadir = opendir("ndata");
     dirent* entry = readdir(datadir);
 
     while(entry){
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
             string line;
             string filename = entry->d_name;
 
-            ifstream infile("Fulldata/1000/" + filename);
+            ifstream infile("ndata/" + filename);
             if (infile.is_open()) {
                 while(getline(infile, line)) {
                     tottime = stod(line);
