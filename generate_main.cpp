@@ -6,13 +6,13 @@
 #include <cmath>
 
 int main(){
-    int num_of_simu = 1000;
+    int num_of_simu = 200;
     int x=0;
     int y=0;
     //std::cout<<"start"<<std::endl;
     for(int s = 0; s < 1; s++){
         if(s == 0){ 
-            x = 5000;
+            x = 10000;
         } else if (s == 1){
             x = 2000;
         } else if (s == 2){
@@ -23,7 +23,7 @@ int main(){
         //std::cout<<x<<std::endl;
         for(int t=0; t<1; t++){
             if(t == 0){
-                y = std::pow(x, 0.5);
+                y = 2000;
             } else if (t == 1){
                 y = x/10;
             } else if (t == 2){
@@ -42,13 +42,13 @@ int main(){
             //std::cout<<"g"<<std::endl;          
             std::string name = "_N_" + std::to_string(x) + "_D_"+std::to_string(y);
             std::ofstream pathseqfile;
-            std::string pathseqname = "./data/path_seq"+name+".csv";
+            std::string pathseqname = "./1042k/path_seq"+name+"3.csv";
             pathseqfile.open(pathseqname);
             std::ofstream pathfile;
-            std::string pathname = "./data/path"+name+".csv";
+            std::string pathname = "./1042k/path"+name+"3.csv";
             pathfile.open(pathname);
             std::ofstream nrpfile;
-            std::string nrpname = "./data/nrp"+name+".csv";
+            std::string nrpname = "./1042k/nrp"+name+"3.csv";
             nrpfile.open(nrpname);
             for(int u = 0; u < num_of_simu; u++){
                 g.reassign_edge(0,0,1);
