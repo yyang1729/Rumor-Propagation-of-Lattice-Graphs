@@ -10,9 +10,9 @@ int main(){
     int x=0;
     int y=0;
     //std::cout<<"start"<<std::endl;
-    for(int s = 0; s < 2; s++){
+    for(int s = 0; s < 1; s++){
         if(s == 0){ 
-            x = 1000;
+            x = 1500;
         } else if (s == 1){
             x = 5000;
         } else if (s == 2){
@@ -21,13 +21,13 @@ int main(){
             x = 5000;
         }
         //std::cout<<x<<std::endl;
-        for(int t=0; t<1; t++){
+        for(int t=0; t<3; t++){
             if(t == 0){
-                y = x/10;
+                y = x/20;
             } else if (t == 1){
-                y = x/10;
+                y = x/5;
             } else if (t == 2){
-                y = std::pow(x, 0.5);
+                y = x/10;
             } else if (t == 3){
                 y = std::pow(x, 0.48);
             } else {
